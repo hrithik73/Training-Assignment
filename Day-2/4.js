@@ -1,10 +1,11 @@
+// :-> Questtion 4
+// :-> Write a program to find the smallest number divisible by all the numbers between 1 to 9.
 
 function callculateGCD(firstNumber, secondNumber) {
   // this function takes two numbers and calculate the GCD recursivly
   if (secondNumber === 0) {
     return firstNumber;
   }
-
   return callculateGCD(secondNumber, firstNumber % secondNumber);
 }
 

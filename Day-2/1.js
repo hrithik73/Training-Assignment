@@ -1,4 +1,5 @@
-// Write a program to remove duplicate values from an array and returns an array of unique values.
+// :->Question 1
+// :->Write a program to remove duplicate values from an array and returns an array of unique values.
 // int[] removeDuplicates(int[]values)
 
 
@@ -9,14 +10,14 @@ function removeDuplicates(initialArray) {
   //When testing one methode always comment out others :)
 
   // Method 1: Using Sort and constant extra space
-  initialArray.sort()
-  let uniqueArray = []
+  // initialArray.sort()
+  // let uniqueArray = []
 
-  for (let i = 0; i < initialArray.length; i++) {
-    if (initialArray[i] !== initialArray[i + 1])
-      uniqueArray.push(initialArray[i])
-  }
-  console.log({ uniqueArray })
+  // for (let i = 0; i < initialArray.length; i++) {
+  //   if (initialArray[i] !== initialArray[i + 1])
+  //     uniqueArray.push(initialArray[i])
+  // }
+  // console.log({ uniqueArray })
 
 
   //Method 2: Using Sort and without extra spaces
