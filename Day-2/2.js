@@ -4,13 +4,14 @@
 // The numbers in each triplet should be ordered in ascending order, and the triplets themselves should be ordered in ascending order with 
 // respect to the numbers they hold.If no three numbers sum up to the target sum, the function should return an empty array
 
-let initialArray = [1, 4, 45, 6, 10, 8], target = 20
+let initialArray = [1, 4, 5, 6, 3, 8, 20, 1, 2], target = 10
 
 function generateTriplet(initialArray, target) {
   //Naive Approach
   let resultArray = [[], []]
 
   initialArray.sort()
+  console.log(initialArray)
   // Fixing the first and second element and finding 3rd element 
   for (let i = 0; i < initialArray.length; i++) {
     let left = i + 1, right = initialArray.length - 1

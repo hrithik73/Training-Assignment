@@ -24,4 +24,4 @@ function printPattern(n) {
   }
   console.log(string)
 }
-printPattern(7)
+printPattern(11)
