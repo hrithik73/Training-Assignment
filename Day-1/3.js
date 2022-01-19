@@ -1,8 +1,9 @@
 //Q3:-Find the largest number less than N whose each digit is prime number
 
 function isPrime(n) {
-  // Function will check if the one digit number is Prime or Not 
-  // Then will return True or False
+  /* Function will check if the one digit number is Prime or Not 
+  Then will return True or False
+  */
   return (n == '2' || n == '3' || n == '5' || n == '7');
 }
 
@@ -28,5 +29,5 @@ function findTheNumber(number) {
 
 }
 
-let result = findTheNumber(54)
+let result = findTheNumber(100)
 console.log(result)
