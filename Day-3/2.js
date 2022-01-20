@@ -16,35 +16,45 @@ Write a method Boolean isKingSafe(int[][]chessBoard)
 
 // Globle Variable 'chessBoard' contains the Data(position of all the peices on the board)4
 let chessBoard = [
-  ['-', '-', '-', '-', '-', '-', '-', '-'],
-  ['-', '-', 'b', '-', '-', '-', '-', '-'],
-  ['-', '-', '-', 'k', '-', '-', '-', '-'],
-  ['-', '-', '-', '-', '-', 'h', '-', '-'],
-  ['-', '-', '-', 'q', '-', '-', '-', '-'],
-  ['-', 'r', '-', '-', '-', '-', '-', '-'],
-  ['-', '-', '-', '-', '-', '-', '-', '-'],
-  ['-', '-', '-', '-', '-', '-', '-', '-']
+  ['.', '.', '.', '.', '.', '.', '.', '.'],
+  ['.', '.', 'b', '.', '.', '.', '.', '.'],
+  ['.', '.', '.', 'k', '.', '.', '.', '.'],
+  ['.', '.', '.', '.', '.', 'h', '.', '.'],
+  ['.', '.', '.', 'q', '.', '.', '.', '.'],
+  ['.', 'r', '.', '.', '.', '.', '.', '.'],
+  ['.', '.', '.', '.', '.', '.', '.', '.'],
+  ['.', '.', '.', '.', '.', '.', '.', '.']
 ]
+
+
 
 function isSafeWithBishop(kingPosition, bishopPosition) {
   // Bishops runs diaonally so if the diagonal of the bishop cross with king's position then it will return false
-  console.log(kingPosition, bishopPosition)
-  // for(let i=0;i)
+  // console.log(kingPosition, bishopPosition)
 
 }
-function isSafeWithRook() {
+function isSafeWithRook(kingPosition, rookPosition) {
+  // 5,2 ->(5,0),(5,1),(5,2),(5,3),(5,4)
+  // 5,2 ->(0,2),(1,2),(2,2),(3,2),(4,2)
+
+  if (kingPosition[0] === rookPosition[0])
+    return false
+  if (kingPosition[1] === rookPosition[1])
+    return false
+
+  return true
+}
+
+function isSafeWithknight() {
 
 }
 function isSafeWithQueen() {
 
 }
-function isSafeWithknight() {
-
-}
 
 
 function isKingSafe(chessBoard) {
-  console.log(chessBoard)
+  // console.log(chessBoard)
   // let kingPosition, bishopPosition, knightPosition, queeenPosition, rookPosition
   let kingPosition = []
   let bishopPosition = []
@@ -89,7 +99,12 @@ function isKingSafe(chessBoard) {
     }
   }
 
-  isSafeWithBishop(kingPosition, bishopPosition)
+
+  if (!isSafeWithRook(kingPosition, rookPosition)) {
+    return false
+  }
+  return true
+
 
 
 
