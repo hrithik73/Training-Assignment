@@ -33,7 +33,7 @@ function longestUniqueSubsttr(str) {
   for (let i = 0; i < str.length; i++) {
     for (let j = i; j < str.length; j++) {
       if (checkDuplicates(str, i, j)) {
-        let currentLength = j - i + 1
+        let currentLength = j - i
         if (currentLength > count) {
           count = currentLength
         }
@@ -44,5 +44,5 @@ function longestUniqueSubsttr(str) {
 
 }
 
-const result = longestUniqueSubsttr("abcabcbb")
+const result = longestUniqueSubsttr("qwerttqqwertyuioppfggf")
 console.log({ result })

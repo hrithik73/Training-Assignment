@@ -16,21 +16,28 @@ Write a method Boolean isKingSafe(int[][]chessBoard)
 
 // Globle Variable 'chessBoard' contains the Data(position of all the peices on the board)4
 let chessBoard = [
+  ['.', '.', '.', 'b', '.', '.', '.', '.'],
   ['.', '.', '.', '.', '.', '.', '.', '.'],
-  ['.', '.', 'b', '.', '.', '.', '.', '.'],
   ['.', '.', '.', 'k', '.', '.', '.', '.'],
-  ['.', '.', '.', '.', '.', 'h', '.', '.'],
-  ['.', '.', '.', 'q', '.', '.', '.', '.'],
-  ['.', 'r', '.', '.', '.', '.', '.', '.'],
+  ['.', '.', '.', '.', '.', '.', 'h', '.'],
   ['.', '.', '.', '.', '.', '.', '.', '.'],
+  ['.', 'r', '.', '.', '.', '.', '.', '.'],
+  ['.', '.', '.', '.', 'q', '.', '.', '.'],
   ['.', '.', '.', '.', '.', '.', '.', '.']
 ]
-
-
 
 function isSafeWithBishop(kingPosition, bishopPosition) {
   // Bishops runs diaonally so if the diagonal of the bishop cross with king's position then it will return false
   // console.log(kingPosition, bishopPosition)
+
+
+  if (kingPosition[0] + kingPosition[1] === bishopPosition[0] + bishopPosition[1])
+    return false
+
+  if (kingPosition[0] - kingPosition[1] === bishopPosition[1] - bishopPosition[0])
+    return false
+
+  return true
 
 }
 function isSafeWithRook(kingPosition, rookPosition) {
@@ -45,11 +52,34 @@ function isSafeWithRook(kingPosition, rookPosition) {
   return true
 }
 
-function isSafeWithknight() {
+function isSafeWithknight(kingPosition, knightPosition) {
+
+  //Getting the position in row ,colum
+
+  let row = knightPosition[0], column = knightPosition[1]
+  let knightAttackingPositions = [
+    [row + 2, column - 1],
+    [row - 2, column + 1],
+    [row + 2, column + 1],
+    [row - 2, column - 1],
+    [row + 1, column - 2],
+    [row + 1, column + 2],
+    [row - 1, column + 2],
+    [row - 1, column - 2]
+  ]
+  // console.log(knightAttackingPositions[0][1])
+  for (let i = 0; i < knightAttackingPositions.length; i++) {
+    if (knightAttackingPositions[i][0] === kingPosition[0] && knightAttackingPositions[i][1] === kingPosition[1])
+      return false
+  }
+
 
 }
-function isSafeWithQueen() {
+function isSafeWithQueen(kingPosition, queeenPosition) {
+  if (isSafeWithBishop(kingPosition, queeenPosition) && isSafeWithRook(kingPosition, queeenPosition))
+    return true
 
+  return false
 }
 
 
@@ -103,10 +133,15 @@ function isKingSafe(chessBoard) {
   if (!isSafeWithRook(kingPosition, rookPosition)) {
     return false
   }
+  if (!isSafeWithBishop(kingPosition, bishopPosition))
+    return false
+
+  if (!isSafeWithknight(kingPosition, knightPosition))
+    return false
+  if (!isSafeWithQueen(kingPosition, queeenPosition))
+    return false
+
   return true
-
-
-
 
   // console.log({ kingPosition })
   // console.log({ bishopPosition })
@@ -116,4 +151,4 @@ function isKingSafe(chessBoard) {
 }
 
 let result = isKingSafe(chessBoard)
-console.log(result)
+console.log({ result })
