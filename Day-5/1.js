@@ -8,20 +8,16 @@ Input :
 Output:
 1 2 3 6 9 8 7 4 5
 3 2 1 4 7 8 9 6 5
+
 */
 
-
 function printArray(initialArray) {
-  // Print Clockwise
-  let clockWise = []
-  let antiClockWise = []
-  // For clockwise
-  for (let i = 0; i < initialArray.length; i++) {
+  // Print Clockwise  
+  let left = 0, right = initialArray.length, top = 0, bottom = initialArray.length
+  let dir = 0
+  while (left < right)
+    console.log({ left, right, top, bottom })
 
-    clockWise.push(initialArray[i])
-
-  }
-  console.log({ clockWise })
 }
 
 let initialArray = [
