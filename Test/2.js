@@ -5,8 +5,8 @@ Each time the sliding window moves right by one position.
 Return the max sliding window
 */
 
+// This Function find the max in the range from start to end in nums
 function findMax(nums, start, end) {
-  // This Function find the max in the range from start to end in nums
   let max = 0
   for (let j = start; j <= end && j < nums.length; j++) {
     if (nums[j] > max)
@@ -29,8 +29,8 @@ function findMaxInSlidingWindow(nums, k) {
   for (let i = 0; i < nums.length; i++) {
 
     // Checks for the condition if it is in the range
-    // end(i)- start is equal k then only find the max and append it to the result
-    if (i - start + 1 === k) {
+    // (end(i)- start )+1 is equal k then only find the max and append it to the result
+    if ((i - start) + 1 === k) {
       let max = findMax(nums, start, i)
       maxSlidingWindow.push(max)
       start++
@@ -38,8 +38,7 @@ function findMaxInSlidingWindow(nums, k) {
     }
 
   }
-  console.log({ maxSlidingWindow })
-
+  return maxSlidingWindow
 }
 
 
@@ -51,3 +50,4 @@ let nums = [1, 3, 4, 5, 2, 7], k = 3
 // [5,2,7] ->7
 // result :-[4,5,5,7]
 let maxWindow = findMaxInSlidingWindow(nums, k)
+console.log({ maxWindow })

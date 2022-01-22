@@ -4,10 +4,10 @@ let nums1 = [1, 3, 8, 10]
 let nums2 = [5, 6, 7, 12, 15, 18]
 
 
+//This function wroks same as Merge Sort's Merge Function which 
+//will take two array then will merge them in sorted manner
 function mergeArray(nums1, nums2) {
 
-  //This function wroks same as Merge Sort's Merge Function which 
-  //will take two array then will merge them in sorted manner
   let tempArray = []
   // Here we declare 3 pointer to traverse the nums1,nums2 and the merged array
 
