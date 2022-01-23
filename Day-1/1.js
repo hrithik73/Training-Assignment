@@ -5,7 +5,8 @@ A name is valid if following conditions are satisfied:
 */
 
 function isValidName(name) {
-  console.log(name)
+  // console.log(name)
+  let result = true
 
   const vowels = new Map([
     ['a', 0],
@@ -21,15 +22,14 @@ function isValidName(name) {
     }
   }
 
-  //check if any vowel occure more than once
+  // check if any vowel occure more than once
+
   vowels.forEach(function (value, key) {
     if (value > 1) {
-      // console.log(value)
-      return false
+      result = false
     }
   })
 
-  console.log(vowels)
   // Check for the Latter between S<-->S
   // check weather the string contains the S
 
@@ -39,12 +39,12 @@ function isValidName(name) {
     for (let i = 0; i < trimmedArray.length; i++) {
       if (trimmedArray[i].includes('t'))
         // console.log("Hello")
-        return false
+        result = false
     }
   }
-  return true
-
+  // result = true
+  return result
 }
 
-let isNameVal = isValidName("hrthik")
+let isNameVal = isValidName("hrithik")
 console.log({ isNameVal })

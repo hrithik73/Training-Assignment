@@ -18,7 +18,7 @@ function findInterleavings(string1, string2, interLeaving) {
     // console.log(string2)
   }
   if (string2.length === 0) {
-    // console.log(string1)
+    // console.log(string1)`
   }
   if (string1.length === 0 && string2.length === 0) {
     console.log(interLeaving)
