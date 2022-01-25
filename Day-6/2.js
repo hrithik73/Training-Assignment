@@ -1,6 +1,6 @@
-/*
-class
-*/
+/**
+ * Ram have a car and  
+ */
 
 
 
@@ -17,66 +17,50 @@ class
 
 
 class Vehicle {
-
+  constructor(brandName, vehicleNumber, vehicleColor, modelNumber) {
+    this.brandName = brandName
+    this.vehicleNumber = vehicleNumber
+    this.vehicleColor = vehicleColor
+    this.modelNumber = modelNumber
+  }
 }
 
-
 class Car extends Vehicle {
-  constructor() {
+  constructor(brandName, vehicleNumber, vehicleColor, modelNumber) {
     super()
-    console.log(this)
+    this.brandName = brandName
+    this.vehicleNumber = vehicleNumber
+    this.vehicleColor = vehicleColor
+    this.modelNumber = modelNumber
   }
 }
 
 class Bike extends Vehicle {
-  constructor() {
-
+  constructor(brandName, vehicleNumber, vehicleColor, modelNumber) {
+    super()
+    this.brandName = brandName
+    this.vehicleNumber = vehicleNumber
+    this.vehicleColor = vehicleColor
+    this.modelNumber = modelNumber
   }
 
 }
 
-class Person extends Vehicle {
-  constructor() {
-    super()
-    console.log(this)
+class Person {
+  constructor(name) {
+    this.name = name
+    this.car = new Car("Mercedese", "DL-04 1999", "red", "Benz XYZ")
+    this.bike = new Bike("BMW", "UP-16 1999", "black", "HayaBusa",)
   }
 
   getTheVehicleDetails() {
-    if (this.numberOfVehicles > 1) {
-      console.log(`${this.name} has ${this.numberOfCars} ${this.carColor} color ${this.carName} car and ${this.numberOfBikes} ${this.bikeColor} ${this.bikeName} bike `)
-    }
-    else {
-      this.carName === undefined ?
-        console.log(`${this.name} has ${this.numberOfBikes} ${this.bikeColor} color ${this.bikeName} bike`)
-        :
-        console.log(`${this.name} has ${this.numberOfCars} ${this.carColor} color ${this.carName} car`)
-    }
+    console.log(`${this.name} has ${this.car.brandName} ${this.car.vehicleColor} car`)
+    console.log(`${this.name} has ${this.bike.brandName} ${this.bike.vehicleColor} bike`)
   }
   //
 }
-let vehicle = [
-  {
-    brandName: "BMW",
-    color: "red",
-    type: "car"
-  },
-  {
-    brandName: "Mercedeze",
-    color: "blue",
-    type: "car"
-  },
-  {
-    brandName: "BMW",
-    color: "red",
-    type: "bike"
-  },
-  {
-    brandName: "TVS",
-    color: "red",
-    type: "bike"
-  },
-]
 
-let hrithikVahicleDetails = new Person("Hrithik", vehicle)
+let hrithikVahicleDetails = new Person("Hrithik")
+hrithikVahicleDetails.getTheVehicleDetails()
 
 
