@@ -13,11 +13,36 @@ Output:
 
 function printArray(initialArray) {
   // Print Clockwise  
+  // We take the all 4 direction and traverse
   let left = 0, right = initialArray.length, top = 0, bottom = initialArray.length
-  let dir = 0
-  while (left < right)
-    console.log({ left, right, top, bottom })
 
+  while (left < right && top < bottom) {
+
+    for (i = top; i < bottom; i++) {
+      console.log(initialArray[left][i])
+    }
+    left++
+
+    for (i = left; i < right; i++) {
+      console.log(initialArray[i][bottom - 1])
+
+    }
+    bottom--
+
+    if (left < right) {
+      for (i = bottom - 1; i >= 0; --i) {
+        console.log(initialArray[right - 1][i])
+      }
+      right--
+    }
+    if (top < bottom) {
+      for (i = right - 1; i >= left; i--) {
+        console.log(initialArray[i][top])
+      }
+      top++;
+    }
+
+  }
 }
 
 let initialArray = [
@@ -25,4 +50,5 @@ let initialArray = [
   [4, 5, 6],
   [7, 8, 9]
 ]
+console.log({ initialArray })
 printArray(initialArray)

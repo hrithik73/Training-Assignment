@@ -14,12 +14,6 @@ let string2 = "CD"
 function findInterleavings(string1, string2, interLeaving) {
 
   // Base cases for recursion
-  if (string1.length === 0) {
-    // console.log(string2)
-  }
-  if (string2.length === 0) {
-    // console.log(string1)`
-  }
   if (string1.length === 0 && string2.length === 0) {
     console.log(interLeaving)
   }
@@ -32,7 +26,6 @@ function findInterleavings(string1, string2, interLeaving) {
   if (string2.length !== 0) {
     findInterleavings(string1, string2.substring(1), interLeaving + string2[0])
   }
-
 
 }
 

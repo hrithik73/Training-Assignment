@@ -8,8 +8,8 @@ let nums2 = [5, 6, 7, 12, 15, 18]
 function mergeArray(nums1, nums2) {
 
   let tempArray = []
-  // Here we declare 3 pointer to traverse the nums1,nums2 and the merged array
 
+  // Here we declare 3 pointer to traverse the nums1,nums2 and the merged array
   let i = 0, j = 0, k = 0
   while (i < nums1.length && j < nums2.length) {
 
@@ -21,7 +21,6 @@ function mergeArray(nums1, nums2) {
       tempArray[k] = nums2[j]
       j++
     }
-
     k++
   }
   // Checking and copying the remaining elements in 1st array ie nums1
