@@ -33,7 +33,6 @@ In Short, If the MP is not PM then he can be arrested by commisoner ,
 If he is minister then can be arrested with PMs permisison.
 */
 
-
 /**
  * Base class to inherit in every class
  * @param {String} name Name of the Person
@@ -113,7 +112,6 @@ class PM extends Minister {
  * @param {object} homeMinister Object of the Minister
  * @param {object} pmOfIndia Object of the PM
  * @param {boolean} hasPmPermission Boolian if the comissioner have the permission of PM to arrest minister 
- * 
  */
 class Commisioner {
   constructor(mpOfNoida, homeMinister, pmOfIndia, hasPmPermission) {
