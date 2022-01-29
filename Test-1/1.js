@@ -6,9 +6,7 @@ let nums2 = [5, 6, 7, 12, 15, 18]
 //This function wroks same as Merge Sort's Merge Function which 
 //will take two array then will merge them in sorted manner
 function mergeArray(nums1, nums2) {
-
   let tempArray = []
-
   // Here we declare 3 pointer to traverse the nums1,nums2 and the merged array
   let i = 0, j = 0, k = 0
   while (i < nums1.length && j < nums2.length) {
@@ -35,9 +33,7 @@ function mergeArray(nums1, nums2) {
     j++
     k++
   }
-
   return tempArray
-
 }
 
 function findMedian(nums1, nums2) {
@@ -53,7 +49,6 @@ function findMedian(nums1, nums2) {
   else {
     return mergedArray[middleIndex]
   }
-
 }
 let median = findMedian(nums1, nums2)
 console.log({ median })

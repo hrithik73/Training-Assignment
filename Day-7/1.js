@@ -8,79 +8,87 @@
  * Status can be text and image
  */
 
-
-class Messaging {
-
+class Contact {
+  constructor(name, phoneNumber, lastSeen, status) {
+    this.name = name
+    this.phoneNumber = phoneNumber
+    this.lastSeen = lastSeen
+    this.status = []
+  }
 
 }
+
+class ChatService {
+  SendMessage(senderId, receiverId, msg) {
+    sentMessages.append(messageTypes)
+  }
+  ReceiveMessage() {
+    zx
+    
+  }
+
+}
+
+/**
+ * @param {String} phoneNumber phone number can be used as the unique Id
+ * @param {Array<string>} contacts Array of string containing
+ * @param {Object<Array>} sentMessages Map of contacts as id and Array of Sent Messages as Value
+ * @param {Object<Array>} recievedMessages Map of contacts as id and array of recieved Message as Value
+ * @param {Object<Array>} status Map of contacts 
+ */
 
 class User {
-  constructor(name, userId, contacts, sentMessages, recievedMessage) {
-    this.name = name,
-      this.id = userId,
-      this.contacts = contacts,
-      this.sentMessages = sentMessages
-    this.recievedMessage = recievedMessage
+  constructor(phoneNumber, contacts, sentMessages, recievedMessages, status) {
+    this.phoneNumber = phoneNumber
+    this.contact = contacts
+    this.sentMessages = sentMessages
+    this.recievedMessages = recievedMessages
+    this.status = status
   }
-
-  /**
-   * This method takes the user id and send the message to the perticular user associated with that id
-   * @param {string} id id of the user to send the message
-   * @param {string} message message to the user
-   */
-
-  sendMessage(id, message) {
-    // console.log(this.sentMessages)
-    console.log(contacts, id)
-
-  }
-
-  /**
-   * 
-   * @param {string} id of the user to send the message 
-   * @param {string} message Message to send to a perticular user
-   */
-
-  recievMessage(id, message) {
-
-  }
-
 }
-
-let contacts = [
+let sentMessages = [
   {
-    "name": "Hrithik",
-    "userId": "#12345"
+    name: "Hrithik",
+    userId: "@1234",
+    messageArray: ["Hello", "How are you?", "How can i help you?"]
   },
   {
-    "name": "ABC",
-    "userId": "#12346"
+    name: "ABC",
+    userId: "@1235",
+    messageArray: ["Hello", "How are you?", "How can i help you?"]
   },
   {
-    "name": "GHI",
-    "userId": "#12983"
-  },
-  {
-    "name": "LIO",
-    "userId": "#74238"
-  },
-  {
-    "name": "FOG",
-    "userId": "#9420938"
-  },
+    name: "DEF",
+    userId: "@12376",
+    messageArray: ["Hello", "How are you?", "How can i help you?"]
+  }
 
 ]
 
-let sentMessages = {
-  "hrithik": ["Hello?", "How Are You"],
-  "BCD": ["ABC", "DEF", "ERF", "Hello"],
-  "DEF": ["How are You Bro?"]
-}
-let recievedMessage = {
-  "hrithik": ["Hello?", "How Are You"],
-  "BCD": ["ABC", "DEF", "ERF", "Hello"],
-  "DEF": ["How are You Bro?"]
+let recievedMessages = [
+  {
+    name: "Hrithik",
+    userId: "@123",
+    messageArray: ["Hello", "How are you?", "How can i help you?"]
+  },
+  {
+    name: "ABC",
+    userId: "@12398",
+    messageArray: ["Hello", "How are you?", "How can i help you?"]
+  },
+  {
+    name: "DEF",
+    userId: "@128723493",
+    messageArray: ["Hello", "How are you?", "How can i help you?"]
+  }
+]
+
+let messageTypes = {
+  "TEXT": "TEXT",
+  "IMAGE": "IMAGE",
+  "VIDEO": "VIDEO"
 }
 
-let userOne = new User("ABC", "#EHF21", contacts, sentMessages, recievedMessage)
-userOne.sendMessage(contacts[0].userId, "Hello")
+let userOne = new User("#1232GH", sentMessages, recievedMessages)
+userOne.SendMessage(messageTypes.IMAGE, "Hello", contacts[0])
+userOne.ReceiveMessage(messageTypes)

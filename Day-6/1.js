@@ -43,6 +43,34 @@ class Person {
   }
 }
 
+class Vehicle {
+  constructor(color, VehicleNumber) {
+    this.color = color
+    this.VehicleNumber = VehicleNumber
+  }
+
+}
+
+class Car extends Vehicle {
+  constructor(color, VehicleNumber, driverName) {
+    this.color = color
+    this.VehicleNumber = VehicleNumber
+    this.driverName = driverName
+  }
+  getDriver() {
+    return this.driverName
+  }
+}
+
+class Aircraft extends Vehicle {
+  constructor(color, VehicleNumber, pilotName) {
+    super()
+    this.color = color
+    this.VehicleNumber = VehicleNumber
+    this.pilotName = pilotName
+  }
+}
+
 /**
  * Using the inheritace by using "extend"
  * @param {String} name Name of the MP
@@ -54,9 +82,10 @@ class Person {
 */
 
 class MP extends Person {
-  constructor(name, constName, carName, driverName, spendingLimit, amountSpent) {
+  constructor(name, post, constName, carName, driverName, spendingLimit, amountSpent) {
     super()
     this.name = name
+    this.post = post
     this.constName = constName
     this.carName = carName
     this.driverName = driverName
@@ -78,22 +107,23 @@ class MP extends Person {
 }
 
 class Minister extends MP {
-  constructor(name, constName, carName, driverName, spendingLimit, amountSpent) {
+  constructor(name, post, constName, carName, driverName, spendingLimit, amountSpent) {
     super()
     this.name = name
+    this.post = post
     this.constName = constName
     this.carName = carName
     this.driverName = driverName
     this.spendingLimit = spendingLimit
     this.amountSpent = amountSpent
   }
-
 }
 /**
  * PM has the additional benifits such as aircraft and privillage to give permision ot arrest MP or Minister
  * All the Params of the MP and minister with following addition
  * @param {string} aircraftName Name of the aircraft assigned to PM
  */
+
 class PM extends Minister {
   constructor(name, constName, carName, driverName, spendingLimit, amountSpent, aircraftName) {
     super()
@@ -103,36 +133,39 @@ class PM extends Minister {
     this.driverName = driverName
     this.spendingLimit = spendingLimit
     this.amountSpent = amountSpent
-    this.aircraftName = this.aircraftName
+    this.aircraftName = new Aircraft("red", "MH-100 9901", aircraftName)
+  }
+
+  getPermission(homeMinister) {
+    if (homeMinister.checkExceedsSpendingLimit())
+      return true
   }
 }
 
-/**
- * @param {object} mpOfNoida Object of the MP 
- * @param {object} homeMinister Object of the Minister
- * @param {object} pmOfIndia Object of the PM
- * @param {boolean} hasPmPermission Boolian if the comissioner have the permission of PM to arrest minister 
- */
+
 class Commisioner {
-  constructor(mpOfNoida, homeMinister, pmOfIndia, hasPmPermission) {
-    this.mpOfNoida = mpOfNoida
-    this.homeMinister = homeMinister
-    this.pmOfIndia = pmOfIndia
-    this.hasPmPermission = hasPmPermission
-  }
+  constructor() { }
 
-  canArrest() {
-    this.mpOfNoida.amountSpent > this.mpOfNoida.spendingLimit ?
-      console.log("Comissioner can Arrest MP")
-      :
-      console.log("Comissioner can not Arrest MP")
+  /**
+   * @param {Object} Object of the MP or Minister 
+   * @param {Boolean} hasPmPermission 
+   * @returns 
+   */
 
-    if (this.homeMinister.amountSpent > this.homeMinister.spendingLimit && this.hasPmPermission) {
-      console.log("Comissioner can arrest Minister")
+  canArrest(objectToCheck, hasPmPermission) {
+
+
+    if (!hasPmPermission) {
+      return false
     }
-    else {
-      console.log("Comissioner can not arrest Minister")
+
+    if (objectToCheck.post === "MP" && objectToCheck.checkExceedsSpendingLimit())
+      console.log("Commisioner can arrest MP")
+
+    if (objectToCheck.post === "Minister" && objectToCheck.checkExceedsSpendingLimit() && hasPmPermission) {
+      console.log("Comissioner can Arrest Minister")
     }
+
   }
 }
 
@@ -141,30 +174,25 @@ const PM_SPENDING_LIMIT = 10000000
 const MINISTER_SPENDING_LIMIT = 1000000
 const MP_SPENDING_LIMIT = 100000
 
-//Objects and method calls for MP
-let mpOfNoida = new MP("Mahesh Sharma", "Greater Noida", "Mercedez Benz", "Sumit", MP_SPENDING_LIMIT, 1000)
+// Instantiating all the class
+let commisonerOfDelhi = new Commisioner()
+let pmOfIndia = new PM("Narendra Modi", "Rajkot", "Mercedes", "Ramesh", PM_SPENDING_LIMIT, 100000000, "Air India One")
+let mpOfNoida = new MP("Mahesh Sharma", "MP", "Greater Noida", "Mercedez Benz", "Sumit", MP_SPENDING_LIMIT, 1000)
+let homeMinister = new Minister("Amit Shah", "Minister", "Gandhinagar", "BMW", "Mahesh", MINISTER_SPENDING_LIMIT, 10000000)
+
+//method calls for MP
 mpOfNoida.getDriver()
 mpOfNoida.getConstituency()
-let isMPSpendingLimitExceeded = mpOfNoida.checkExceedsSpendingLimit()
-console.log({ isMPSpendingLimitExceeded })
+commisonerOfDelhi.canArrest(mpOfNoida)
 console.log("--------------------------------------------------------------")
 
-//Objects and method calls for Minister
-let homeMinister = new Minister("Amit Shah", "Gandhinagar", "BMW", "Mahesh", MINISTER_SPENDING_LIMIT, 10000000)
+//method calls for Minister
 homeMinister.getDriver()
 homeMinister.getConstituency()
-let isMinisterSpendingLimitExceeded = homeMinister.checkExceedsSpendingLimit()
-console.log({ isMinisterSpendingLimitExceeded })
+commisonerOfDelhi.canArrest(homeMinister, pmOfIndia.getPermission(homeMinister))
 console.log("--------------------------------------------------------------")
 
-//Objects and method calls for PM
-let pmOfIndia = new Minister("Narendra Modi", "Rajkot", "Mercedes", "Ramesh", PM_SPENDING_LIMIT, 100000000, "Air India One")
+//method calls for PM
 pmOfIndia.getDriver()
 pmOfIndia.getConstituency()
-let isPMSpendingLimitExceeded = pmOfIndia.checkExceedsSpendingLimit()
-console.log({ isPMSpendingLimitExceeded })
 console.log("--------------------------------------------------------------")
-
-//Objects and method calls for PM
-let commisonerOfDelhi = new Commisioner(mpOfNoida, homeMinister, pmOfIndia, true)
-commisonerOfDelhi.canArrest()

@@ -24,7 +24,6 @@ class Address {
     this.country = address.country
   }
 }
-
 class Employee {
   constructor(name, salary, married, grade, address, mobileNumbers,) {
     this.name = name
@@ -52,6 +51,3 @@ let EmployeeOject = new Employee("Hrithik", 1000000, false, "A", address, ['9113
 JSON.stringify(EmployeeOject)
 console.log(EmployeeOject)
 console.log(typeof (EmployeeOject))
-
-
-

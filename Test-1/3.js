@@ -5,8 +5,7 @@ where the order of characters is preserved.
 
 
 let string1 = "AB"
-let string2 = "CD"
-
+let string2 = "C"
 // The Task is to generate all the Possible combinations which contains string1 and string2
 // The order is preseverd means the A Shoul always comes before B and C before D
 

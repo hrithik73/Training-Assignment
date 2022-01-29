@@ -11,8 +11,28 @@
  > Need to find out total number of walls initiated, total number of bricks initiated in specific wall.
  > Admin can edit any brick whereas user can edit only his/her brick.
  > If more than 10 bricks would be flagged then brick would be in invisible mode.
- An owner can dedicate more than one brick to express his/ her love to more than one person whereas a specific brick can be only owned by one person.
+ An owner can dedicate more than one brick to express his/ her love to more than one person whereas a specific brick 
+ can be only owned by one person.
  Find out hottest guy or girl that received max number of bricks.
  Find out the guy or girl that don't get any dedication.
  You can input 10 users from command line. Whole project should be able to run through command line
- */
+ **/
+
+class Brick {
+  constructor(res) {
+
+  }
+}
+class User {
+  constructor(user) {
+    
+  }
+}
+
+let users = [
+  {
+    id: "",
+    name: "",
+  },
+
+]
