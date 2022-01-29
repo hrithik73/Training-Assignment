@@ -31,9 +31,9 @@ and stitching cost :
 
 /**
  * Constant class to have all the constants
+ * In a real life application we can have a specific folder for constants such as config/constans.js 
  */
 class Constant {
-
   static getExtraGSMValues() {
     const EXTRA_GSM_VALUES = {
       "A": 10,
